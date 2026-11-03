@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Interactive and CLI theme switcher for CleanYourTV on Hisense SmartTV 4K FFM.
-Supports: glass, aurora, nature-calm, scenes, sweden, default.
+Supports: glass, aurora, cinematic, scenes, sweden, default.
 Preserves user's 5-slot dock layout and captures a verification screenshot.
 """
 
@@ -27,9 +27,9 @@ THEMES = [
         "desc": "Dark teal & violet aurora wallpaper with navy backdrop"
     },
     {
-        "id": "nature-calm",
-        "name": "Nature Calm",
-        "desc": "12 calming Wikimedia nature scenes rotating every 5 minutes"
+        "id": "cinematic",
+        "name": "Cinematic",
+        "desc": "OLED cinema look, true-colour wallpaper, frosted glass dock, idle clock"
     },
     {
         "id": "scenes",
@@ -78,7 +78,7 @@ def set_current_theme(name):
         pass
 
 
-def apply_theme(theme_id, tv_host="192.168.1.10"):
+def apply_theme(theme_id, tv_host="192.168.1.12"):
     print(f"\nApplying theme: '{theme_id}' to TV at {tv_host}...")
     theme_script = os.path.join(REPO_ROOT, "tools", "theme.sh")
     env = os.environ.copy()
@@ -105,6 +105,8 @@ def apply_theme(theme_id, tv_host="192.168.1.10"):
                 "columns": CUSTOM_COLUMNS,
                 "fill_dock": True,
                 "greeting_name": CUSTOM_GREETING_NAME,
+                "settings_key_panel": True,
+                "settings_key_keycodes": [83, 176],
                 "wallpaper": False,
                 "dock_glass": False,
                 "ambient_glow": True,
@@ -129,6 +131,8 @@ def apply_theme(theme_id, tv_host="192.168.1.10"):
             cfg["columns"] = CUSTOM_COLUMNS
             cfg["fill_dock"] = True
             cfg["greeting_name"] = CUSTOM_GREETING_NAME
+            cfg["settings_key_panel"] = True
+            cfg["settings_key_keycodes"] = [83, 176]
 
             # Copy single wallpaper if present
             wp = os.path.join(src_theme_dir, "wallpaper.jpg")
@@ -166,9 +170,9 @@ def apply_theme(theme_id, tv_host="192.168.1.10"):
     return True
 
 
-def toggle_next(tv_host="192.168.1.10"):
+def toggle_next(tv_host="192.168.1.12"):
     current = get_current_theme()
-    order = ["default", "glass", "aurora", "nature-calm", "scenes", "sweden"]
+    order = ["default", "glass", "aurora", "cinematic", "scenes", "sweden"]
     try:
         idx = order.index(current)
         next_idx = (idx + 1) % len(order)
@@ -179,7 +183,7 @@ def toggle_next(tv_host="192.168.1.10"):
     return apply_theme(next_theme, tv_host)
 
 
-def interactive_menu(tv_host="192.168.1.10"):
+def interactive_menu(tv_host="192.168.1.12"):
     current = get_current_theme()
     print("=" * 60)
     print("   CleanYourTV - Theme Switcher for Hisense SmartTV 4K FFM")
@@ -215,7 +219,7 @@ def interactive_menu(tv_host="192.168.1.10"):
 
 
 def main():
-    tv_host = os.environ.get("TV_HOST", "192.168.1.10")
+    tv_host = os.environ.get("TV_HOST", "192.168.1.12")
     if len(sys.argv) == 1:
         interactive_menu(tv_host)
     else:

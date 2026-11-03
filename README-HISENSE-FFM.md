@@ -47,7 +47,7 @@ Setup guide, maintenance instructions, and restoration steps for your debloated 
   # Or switch directly by name:
   ./toggle-theme.sh glass
   ./toggle-theme.sh aurora
-  ./toggle-theme.sh nature-calm
+  ./toggle-theme.sh cinematic
   ./toggle-theme.sh scenes
   ./toggle-theme.sh sweden
   ./toggle-theme.sh default

@@ -3,7 +3,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-export TV_HOST="${TV_HOST:-192.168.1.10}"
+export TV_HOST="${TV_HOST:-192.168.1.12}"
 PY=tools/venv/bin/python
 [ -x "$PY" ] || PY=python3
 

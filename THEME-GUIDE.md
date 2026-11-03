@@ -25,11 +25,11 @@ This opens the interactive menu:
 ```text
 ============================================================
    CleanYourTV - Theme Switcher for Hisense SmartTV 4K FFM
-   Connected TV Host: 192.168.1.10 | Current Theme: [glass]
+   Connected TV Host: 192.168.1.12 | Current Theme: [glass]
 ============================================================
   [1] Glass                * - Frosted glass dock, soft lighting & horizon glow
   [2] Aurora                 - Dark teal & violet aurora wallpaper with navy backdrop
-  [3] Nature Calm            - 12 calming Wikimedia nature scenes rotating every 5 min
+  [3] Cinematic              - OLED cinema look, true-colour wallpaper, frosted glass dock
   [4] Scenes                 - 14 dark illustrated landscape wallpapers rotating hourly
   [5] Sweden                 - 3 Swedish landscapes (Abisko aurora, etc.) rotating hourly
   [6] Default (Apple TV)     - Pitch black backdrop, Apple TV 4K dock band
@@ -46,7 +46,7 @@ Pass the theme name directly as an argument:
 ./toggle-theme.sh aurora
 ./toggle-theme.sh glass
 ./toggle-theme.sh scenes
-./toggle-theme.sh nature-calm
+./toggle-theme.sh cinematic
 ./toggle-theme.sh sweden
 ./toggle-theme.sh default
 ```
@@ -65,7 +65,7 @@ Cycle sequentially to the next theme in the rotation:
 |---|---|---|
 | `glass` | **Glass** | Frosted glass dock shelf, soft horizon glow matching focused app, translucent pill buttons. |
 | `aurora` | **Aurora** | Dark navy backdrop with deep teal and violet polar aurora ribbon. |
-| `nature-calm` | **Nature Calm** | 12 high-resolution calming nature landscapes rotating every 5 minutes. |
+| `cinematic` | **Cinematic** | OLED cinema look, true-colour wallpaper, frosted glass dock, idle clock after 2 minutes. |
 | `scenes` | **Scenes** | 14 dark illustrated minimal landscape wallpapers rotating every hour. |
 | `sweden` | **Sweden** | 3 Nordic landscapes (Abisko aurora borealis, Vasabron, Skeppsbron) rotating hourly. |
 | `default` | **Apple TV Default** | Pure pitch black OLED background, Apple TV 4K dock band, and minimal UI. |
